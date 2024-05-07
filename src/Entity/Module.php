@@ -21,19 +21,20 @@ class Module
     #[ORM\ManyToOne(inversedBy: 'modules')]
     private ?Category $category = null;
 
-    #[ORM\ManyToOne(inversedBy: 'modules')]
-    private ?Program $program = null;
-
     /**
-     * @var Collection<int, program>
+     * @var Collection<int, Program>
      */
-    #[ORM\OneToMany(targetEntity: program::class, mappedBy: 'module')]
+    #[ORM\OneToMany(targetEntity: Program::class, mappedBy: 'module')]
     private Collection $programs;
 
     public function __construct()
     {
         $this->programs = new ArrayCollection();
     }
+
+
+    
+
 
     public function getId(): ?int
     {

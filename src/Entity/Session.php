@@ -34,14 +34,15 @@ class Session
     #[ORM\ManyToMany(targetEntity: intern::class, inversedBy: 'sessions')]
     private Collection $interns;
 
-    #[ORM\ManyToOne(inversedBy: 'sessions')]
-    private ?Program $program = null;
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
 
     /**
-     * @var Collection<int, program>
+     * @var Collection<int, Program>
      */
-    #[ORM\OneToMany(targetEntity: program::class, mappedBy: 'session')]
+    #[ORM\OneToMany(targetEntity: Program::class, mappedBy: 'session')]
     private Collection $programs;
+
 
     public function __construct()
     {
@@ -138,15 +139,27 @@ class Session
         return $this;
     }
 
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): static
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
     /**
-     * @return Collection<int, program>
+     * @return Collection<int, Program>
      */
     public function getPrograms(): Collection
     {
         return $this->programs;
     }
 
-    public function addProgram(program $program): static
+    public function addProgram(Program $program): static
     {
         if (!$this->programs->contains($program)) {
             $this->programs->add($program);
@@ -156,7 +169,7 @@ class Session
         return $this;
     }
 
-    public function removeProgram(program $program): static
+    public function removeProgram(Program $program): static
     {
         if ($this->programs->removeElement($program)) {
             // set the owning side to null (unless already changed)
