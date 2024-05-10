@@ -17,10 +17,10 @@ class Program
     private ?int $numberOfDAys = null;
 
     #[ORM\ManyToOne(inversedBy: 'programs')]
-    private ?module $module = null;
+    private ?Module $module = null;
 
     #[ORM\ManyToOne(inversedBy: 'programs')]
-    private ?session $session = null;
+    private ?Session $session = null;
 
     public function getId(): ?int
     {
@@ -62,4 +62,10 @@ class Program
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->numberOfDAys;
+    }
+
 }

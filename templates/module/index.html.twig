@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ModuleController!{% endblock %}
+
+{% block body %}
+<h1>Liste des modules</h1>
+
+{% for module in modules %}
+    {{module}} <br>
+{% endfor %}
+{% endblock %}

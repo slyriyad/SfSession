@@ -2,20 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\Session;
+use App\Entity\Intern;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SessionController extends AbstractController
+class InternController extends AbstractController
 {
-    #[Route('/session', name: 'app_session')]
+    #[Route('/intern', name: 'app_intern')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $sessions = $entityManager->getRepository(Session::class)->findAll();
-        return $this->render('session/index.html.twig', [
-            'sessions' => $sessions
+        $interns = $entityManager->getRepository(Intern::class)->findAll();
+        return $this->render('intern/index.html.twig', [
+            'interns' => $interns
         ]);
     }
 }

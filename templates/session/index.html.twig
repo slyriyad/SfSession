@@ -6,6 +6,8 @@
 
 <h1>Liste des sessions</h1>
 
-{{ controller_name }}
+{% for session in sessions %}
+    {{session}} <br>
+{% endfor %}
 
 {% endblock %}

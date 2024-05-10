@@ -2,20 +2,20 @@
 
 namespace App\Controller;
 
-use App\Entity\Session;
+use App\Entity\Formation;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SessionController extends AbstractController
+class FormationController extends AbstractController
 {
-    #[Route('/session', name: 'app_session')]
+    #[Route('/formation', name: 'app_formation')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $sessions = $entityManager->getRepository(Session::class)->findAll();
-        return $this->render('session/index.html.twig', [
-            'sessions' => $sessions
+        $formations = $entityManager->getRepository(Formation::class)->findAll();
+        return $this->render('formation/index.html.twig', [
+            'formations' => $formations
         ]);
     }
 }

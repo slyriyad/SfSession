@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProgramController!{% endblock %}
+
+{% block body %}
+<h1>Liste des programs</h1>
+
+{% for program in programs %}
+    {{program}} <br>
+{% endfor %}
+{% endblock %}

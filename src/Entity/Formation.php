@@ -21,7 +21,7 @@ class Formation
     /**
      * @var Collection<int, session>
      */
-    #[ORM\OneToMany(targetEntity: session::class, mappedBy: 'formation')]
+    #[ORM\OneToMany(targetEntity: Session::class, mappedBy: 'formation')]
     private Collection $sessions;
 
     public function __construct()
@@ -74,5 +74,10 @@ class Formation
         }
 
         return $this;
+    }
+
+    public function  __toString()
+    {
+        return $this->name;
     }
 }

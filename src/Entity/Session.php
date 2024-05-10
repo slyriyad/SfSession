@@ -31,7 +31,7 @@ class Session
     /**
      * @var Collection<int, intern>
      */
-    #[ORM\ManyToMany(targetEntity: intern::class, inversedBy: 'sessions')]
+    #[ORM\ManyToMany(targetEntity: Intern::class, inversedBy: 'sessions')]
     private Collection $interns;
 
     #[ORM\Column(length: 255)]
@@ -179,5 +179,10 @@ class Session
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

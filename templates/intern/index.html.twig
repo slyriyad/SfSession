@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InternController!{% endblock %}
+
+{% block body %}
+<h1>Liste des interns</h1>
+
+{% for intern in interns %}
+    {{intern}} <br>
+{% endfor %}
+{% endblock %}
