@@ -4,30 +4,67 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
         {% endblock %}
 
         {% block javascripts %}
+        <script type="text/javascript" src="monscript.js"></script>
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
-        <nav>
-            <ul>
-                <li><a href="{{ path('app_formation')}}">Liste des formations</a></li>
-                <li><a href="{{ path('new_formation')}}">Ajouter une formation</a></li>
-                <li><a href="{{ path('app_intern')}}">Liste des interns</a></li>
-                <li><a href="{{ path('new_intern')}}">Ajouter une intern</a></li>
-                <li><a href="{{ path('app_module')}}">Liste des modules</a></li>
-                <li><a href="{{ path('new_module')}}">Ajouter une module</a></li>
-                <li><a href="{{ path('app_program')}}">Liste des programs</a></li>
-                <li><a href="{{ path('new_program')}}">Ajouter une program</a></li>
-                <li><a href="{{ path('app_session')}}">Liste des sessions</a></li>
-                <li><a href="{{ path('new_session')}}">Ajouter une session</a></li>
-                <li><a href="{{ path('app_category')}}">Liste des categorys</a></li>
-                <li><a href="{{ path('new_category')}}">Ajouter une category</a></li>
-            </ul>
-        </nav>
-        {% block body %}{% endblock %}
+        <div class="wrapper">
+            <div class="nav">
+                <nav>
+                    <div class="logo">
+                        <p>
+                            SESSION
+                        </p>
+                    </div>
+                    <ul>
+                        <li><a href="{{ path('app_category')}}">Categorie</a></li>
+                        <li><a href="{{ path('app_formation')}}">Formation</a></li>
+                        <li><a href="{{ path('app_session')}}">Session</a></li>
+                        {# <li><a href="{{ path('new_formation')}}">Ajouter une formation</a></li> #}
+                        {# <li><a href="{{ path('new_intern')}}">Ajouter une intern</a></li> #}
+                        <li><a href="{{ path('app_module')}}">Module</a></li>
+                        <li><a href="{{ path('app_intern')}}">Stagiaire</a></li>
+                        <li><a href="{{ path('app_program')}}">Programme</a></li>
+                        {# <li><a href="{{ path('new_module')}}">Ajouter une module</a></li> #}
+                        {# <li><a href="{{ path('new_program')}}">Ajouter une program</a></li> #}
+                        {# <li><a href="{{ path('new_session')}}">Ajouter une session</a></li> #}
+                        {# <li><a href="{{ path('new_category')}}">Ajouter une category</a></li> #}
+                    </ul>
+                    <div class="logout">
+                        <a href="">LOGOUT</a>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="content">
+                <div class="header">
+                    <form action="">
+                        <div class="search">
+                            <input type="search" required>
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </form>
+                    <div class="user-profile">
+                        <img src="{{asset('img/riyad.jfif')}}" alt="photo de profil">
+                        <p>
+                            Riyad Fouzi
+                        </p>
+                    </div>
+                </div>
+                <div class="main">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -7,4 +7,25 @@
 
 <h2>{{formation}}</h2>
 
+<table>
+    <thead>
+        <tr>
+            <th>session</th>
+            <th>date de debut</th>
+            <th>date fin</th>
+            <th>places totales</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in formation.sessions %}
+        <tr>
+            <th scope="row"><a href="{{path('show_session' , {'id':session.id})}}">{{session.name}}<a></a></th>
+            <td>{{session.startDate | date("d/m/Y") }}</td>
+            <td>{{session.endDate | date("d/m/Y")}}</td>
+            <td>{{session.numberOfPlaces}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

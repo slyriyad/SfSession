@@ -6,5 +6,46 @@
 <h1>Detail d'un stagiaire</h1>
 
 <h2>{{intern}}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>sexe</th>
+            <th>Date de naissance</th>
+            <th>ville</th>
+            <th>Courriel</th>
+            <th>Téléphone</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">{{intern.gender}}</th>
+            <td>{{intern.birthDate | date("d/m/Y")}}</td>
+            <td>{{intern.city }}</td>
+            <td>{{intern.email }}</td>
+            <td>{{intern.phoneNumber }}</td>
+        </tr>
+    </tbody>
+</table>
+<h2>Sessions prévues</h2>
+<table>
+    <thead>
+        <tr>
+            <th>session</th>
+            <th>date de debut</th>
+            <th>date fin</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in intern.sessions %}
+        <tr>
+            <th scope="row"><a href="{{path('show_session' , {'id':session.id})}}"></a>{{session.name}}<a></a></th>
+            <td>{{session.startDate | date("d/m/Y") }}</td>
+            <td>{{session.endDate | date("d/m/Y")}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}

@@ -127,18 +127,6 @@ class Session
         return $this;
     }
 
-    public function getProgram(): ?Program
-    {
-        return $this->program;
-    }
-
-    public function setProgram(?Program $program): static
-    {
-        $this->program = $program;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
         return $this->name;

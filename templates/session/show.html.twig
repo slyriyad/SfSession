@@ -7,4 +7,38 @@
 
 <h2>{{session}}</h2>
 
+<table>
+    <thead>
+        <tr>
+            <th>module</th>
+            <th>nombre de jour</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for program in session.programs %}
+        <tr>
+            <th scope="row"><a href="{{path('show_module' , {'id':program.module.id})}}">{{program.module.name}}</a></th>
+            <td>{{program.numberOfDays }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h2>éleves inscrits</h2>
+<table>
+    <thead>
+        <tr>
+            <th>nom prenom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for intern in session.interns %}
+        <tr>
+            <th scope="row"><a href="{{path('show_intern' , {'id':intern.id})}}">{{intern}}</a></th>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

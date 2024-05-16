@@ -7,7 +7,9 @@
 <h1>Liste des sessions</h1>
 
 {% for session in sessions %}
-    {{session}} <br>
+<a href="{{ path('delete_session',{'id': session.id})}}">Supprimer</a>
+<a href="{{ path('edit_session',{'id': session.id})}}">Edit</a>
+<a href="{{path('show_session' , {'id':session.id})}}">{{session}} <br>
 {% endfor %}
 
 {% endblock %}

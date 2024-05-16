@@ -6,5 +6,19 @@
 <h1>Detail d'une category</h1>
 
 <h2>{{category}}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>module</th>
 
+        </tr>
+    </thead>
+    <tbody>
+        {% for module in category.modules %}
+        <tr>
+            <th scope="row"><a href="{{path('show_module' , {'id':module.id})}}">{{module.name}}</a></th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
