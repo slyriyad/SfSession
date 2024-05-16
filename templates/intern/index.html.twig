@@ -6,6 +6,8 @@
 <h1>Liste des interns</h1>
 
 {% for intern in interns %}
-    {{intern}} <br>
+    <a href="{{ path('delete_intern',{'id': intern.id})}}">Supprimer</a>
+    <a href="{{ path('edit_intern',{'id': intern.id})}}">Edit</a>
+    <a href="{{path('show_intern' , {'id':intern.id})}}">{{intern}} <br>
 {% endfor %}
 {% endblock %}

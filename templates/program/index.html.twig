@@ -6,6 +6,8 @@
 <h1>Liste des programs</h1>
 
 {% for program in programs %}
-    {{program}} <br>
+    <a href="{{ path('delete_program',{'id': program.id})}}">Supprimer</a>
+    <a href="{{ path('edit_program',{'id': program.id})}}">Edit</a>
+    <a href="{{path('show_program' , {'id':program.id})}}">{{program}} <br>
 {% endfor %}
 {% endblock %}

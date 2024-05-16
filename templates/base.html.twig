@@ -12,6 +12,22 @@
         {% endblock %}
     </head>
     <body>
+        <nav>
+            <ul>
+                <li><a href="{{ path('app_formation')}}">Liste des formations</a></li>
+                <li><a href="{{ path('new_formation')}}">Ajouter une formation</a></li>
+                <li><a href="{{ path('app_intern')}}">Liste des interns</a></li>
+                <li><a href="{{ path('new_intern')}}">Ajouter une intern</a></li>
+                <li><a href="{{ path('app_module')}}">Liste des modules</a></li>
+                <li><a href="{{ path('new_module')}}">Ajouter une module</a></li>
+                <li><a href="{{ path('app_program')}}">Liste des programs</a></li>
+                <li><a href="{{ path('new_program')}}">Ajouter une program</a></li>
+                <li><a href="{{ path('app_session')}}">Liste des sessions</a></li>
+                <li><a href="{{ path('new_session')}}">Ajouter une session</a></li>
+                <li><a href="{{ path('app_category')}}">Liste des categorys</a></li>
+                <li><a href="{{ path('new_category')}}">Ajouter une category</a></li>
+            </ul>
+        </nav>
         {% block body %}{% endblock %}
     </body>
 </html>

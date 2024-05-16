@@ -21,7 +21,7 @@ class Category
     /**
      * @var Collection<int, module>
      */
-    #[ORM\OneToMany(targetEntity: module::class, mappedBy: 'category')]
+    #[ORM\OneToMany(targetEntity: Module::class, mappedBy: 'category')]
     private Collection $modules;
 
     public function __construct()
@@ -54,7 +54,7 @@ class Category
         return $this->modules;
     }
 
-    public function addModule(module $module): static
+    public function addModule(Module $module): static
     {
         if (!$this->modules->contains($module)) {
             $this->modules->add($module);
@@ -64,7 +64,7 @@ class Category
         return $this;
     }
 
-    public function removeModule(module $module): static
+    public function removeModule(Module $module): static
     {
         if ($this->modules->removeElement($module)) {
             // set the owning side to null (unless already changed)
@@ -74,5 +74,10 @@ class Category
         }
 
         return $this;
+    }
+
+    public function  __toString()
+    {
+        return $this->name;
     }
 }

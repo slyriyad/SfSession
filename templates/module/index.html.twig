@@ -6,6 +6,8 @@
 <h1>Liste des modules</h1>
 
 {% for module in modules %}
-    {{module}} <br>
+    <a href="{{ path('delete_module',{'id': module.id})}}">Supprimer</a>
+    <a href="{{ path('edit_module',{'id': module.id})}}">Edit</a>
+    <a href="{{path('show_module' , {'id':module.id})}}">{{module}} <br>
 {% endfor %}
 {% endblock %}
